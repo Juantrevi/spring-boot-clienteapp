@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+
+<body>
+<header th:replace="plantilla/template :: header"></header>
+
+<div class="container">
+    <p th:if="${error != null}" th:text="${error}" class="alert alert-warning" role="alert"> </p>
+    <p th:if="${mensaje != null}" th:text="${mensaje}" class="alert alert-warning" role="alert"> </p>
+    <div class="card bg-light">
+        <div class="card-header bg-light" th:text="${titulo}"></div>
+        <div class="card-body">
+
+
+
+    <form th:action="@{/usuario/confirmacion}" th:object="${pedido}" method="post">
+        <div class="form-group row">
+            <label class="col-md-2" for="nombres">NOMBRE:</label>
+            <input type="text" th:field="*{nombre}" th:value="${pedido.nombre}" class="form-control form-control-sm col-md-6" id="nombres" placeholder="Nombres del cliente">
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2" for="apellidos">APELLIDO:</label>
+            <input type="text" th:field="*{apellido}" th:value="${pedido.apellido}" class="form-control form-control-sm col-md-6" id="apellidos" placeholder="Apellidos del cliente">
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2" for="telefono">EMAIL:</label>
+            <input type="text" th:field="*{email}" th:value="${pedido.email}" class="form-control form-control-sm col-md-6" id="telefono" placeholder="Telefono del cliente">
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2" for="email">PASS:</label>
+            <input type="text" th:field="*{password}" th:value="${pedido.password}" class="form-control form-control-sm col-md-6" id="email" placeholder="Email del cliente">
+        </div>
+
+
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
+        </div>
+
+    </form>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>
