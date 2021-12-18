@@ -24,7 +24,7 @@ public class MailController {
         return "usuarios/usuario";
     }
 
-
+//
 
     @PostMapping( "/confirmacion")
     public String confirmacion(@ModelAttribute RegistroPedido pedido){
